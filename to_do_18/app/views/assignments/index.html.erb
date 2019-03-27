@@ -2,30 +2,14 @@
 
 <h1>List of Assignments of <%= @user_name %></h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Task</th>
-      <th>Is done</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @assignments.each do |assignment| %>
-      <tr>
-        <td><%= assignment.user %></td>
-        <td><%= assignment.task %></td>
-        <td><%= assignment.is_done %></td>
-        <td><%= link_to 'Show', assignment %></td>
-        <td><%= link_to 'Edit', edit_assignment_path(assignment) %></td>
-        <td><%= link_to 'Destroy', assignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<div class = row>
+  <% @assignments.each do |assignment| %>
+    <div class="col-4 card">
+      <%= image_tag assignment.task.image, size: '250x250'%>
+      <h3><%= assignment.task.name %></h3>
+      <p><%= assignment.is_done %></p>
+    </div>
+  <% end %>
+</div>
 <br>
 
-<%= link_to 'New Assignment', new_assignment_path %>
