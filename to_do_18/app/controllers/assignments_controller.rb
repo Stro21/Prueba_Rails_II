@@ -1,11 +1,12 @@
 class AssignmentsController < ApplicationController
   before_action :set_assignment, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  
+
   # GET /assignments
   # GET /assignments.json
   def index
     @assignments = Assignment.all
+    @user_name = current_user.name
   end
 
   # GET /assignments/1
