@@ -8,9 +8,9 @@
       <%= image_tag assignment.task.image, size: '580x250'%>
       <h3><%= assignment.task.name %></h3>
       <% if assignment.is_done %>
-        <%= link_to 'Completado', assignment_path(assignment)%>
+        <button type="button" class="btn btn-success"><%= link_to 'Completado', assignment_path(assignment)%></button>
       <% else %>
-        <%= link_to 'No completado', assignment_path(assignment)%>
+        <button type="button" class="btn btn-danger"><%= link_to 'No completado', assignment_path(assignment)%></button>
       <% end %>
     </div>
   <% end %>
