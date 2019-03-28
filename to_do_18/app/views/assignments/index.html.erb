@@ -1,15 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <h1>List of Assignments of <%= @user_name %></h1>
-
+<br>
 <div class = row>
   <% @assignments.each do |assignment| %>
     <div class="col-4 card">
-      <%= image_tag assignment.task.image, size: '250x250'%>
+      <%= image_tag assignment.task.image, size: '580x250'%>
       <h3><%= assignment.task.name %></h3>
-      <p><%= assignment.is_done %></p>
+      <% if assignment.is_done %>
+        <%= link_to 'Completado', assignment_path(assignment)%>
+      <% else %>
+        <%= link_to 'No completado', assignment_path(assignment)%>
+      <% end %>
     </div>
   <% end %>
 </div>
-<br>
+
 
